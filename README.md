@@ -22,7 +22,7 @@ Após realizar a instalação limpa do **Debian (netinst)** sem ambiente gráfic
 sudo apt update && sudo apt install -y git
 
 # Clonar o repositório
-git clone [https://github.com/arnaldweger/debian_minimal_i3.git](https://github.com/arnaldweger/debian_minimal_i3.git)
+git clone https://github.com/arnaldweger/debian_minimal_i3.git
 cd debian_minimal_i3
 
 # Dar permissão e rodar o instalador
