@@ -9,7 +9,7 @@ sudo apt update
 sudo apt install -y \
     i3-wm i3status j4-dmenu-desktop dmenu kitty dunst micro \
     flameshot file-roller thunar git xinit xserver-xorg-core xserver-xorg \
-    build-essential libpam0g-dev libxcb-xoutputs0-dev
+    build-essential libpam0g-dev libxcb-xinputs-dev
 
 # 2. Instalação do Ly Display Manager
 echo "=== Instalando o Ly Display Manager ==="
