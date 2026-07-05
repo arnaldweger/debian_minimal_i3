@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
-
 # Sair imediatamente se um comando falhar
 set -e
 
 echo "=== Iniciando a instalação do i3status ==="
 
-
-
-# Criando a configuração básica do i3status
 echo "=== Gerando arquivo de configuração do i3status ==="
 mkdir -p "$USER_CONFIG_DIR/i3status"
 cat << 'EOF' > "$USER_CONFIG_DIR/i3status/config"
@@ -16,19 +12,34 @@ general {
         interval = 5
 }
 
+order += "cpu_usage"
+order += "memory"
 order += "disk /"
-order += "load"
+order += "ethernet _first_"
 order += "tztime local"
 
-disk "/" {
-        format = " Disco: %avail "
+cpu_usage {
+        format = " CPU: %usage "
 }
 
-load {
-        format = " CPU: %1min "
+memory {
+        format = " MEM: %used / %total "
+        threshold_degraded = "1G"
+        format_degraded = " MEM BAIXA: %free "
+}
+
+disk "/" {
+        format = " HD: %avail "
+}
+
+ethernet _first_ {
+        format_up = " IP: %ip "
+        format_down = " Sem Rede "
 }
 
 tztime local {
         format = " %d/%m/%Y %H:%M:%S "
 }
 EOF
+
+echo "=== Configuração do i3status gerada com sucesso ==="
