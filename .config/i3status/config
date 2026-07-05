@@ -9,6 +9,7 @@ echo "=== Iniciando a instalação do i3status ==="
 
 # Criando a configuração básica do i3status
 echo "=== Gerando arquivo de configuração do i3status ==="
+mkdir -p "$USER_CONFIG_DIR/i3"
 cat << 'EOF' > "$USER_CONFIG_DIR/i3status/config"
 general {
         colors = true

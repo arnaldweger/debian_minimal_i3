@@ -7,6 +7,7 @@ echo "=== Iniciando a instalação do i3 ==="
 
 # 5. Criando a configuração do i3 (Barra no topo, Kitty, j4-dmenu, Thunar, Flameshot)
 echo "=== Gerando arquivo de configuração do i3 ==="
+mkdir -p "$USER_CONFIG_DIR/i3"
 cat << 'EOF' > "$USER_CONFIG_DIR/i3/config"
 # Configuração Minimalista i3
 set $mod Mod4
