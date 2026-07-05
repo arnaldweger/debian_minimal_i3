@@ -8,7 +8,7 @@ Um script de pós-instalação para transformar um Debian puro em um ambiente de
 * **Launcher:** j4-dmenu-desktop + dmenu
 * **Terminal:** Kitty
 * **Notificações:** Dunst
-* **Login Manager:** Ly (TUI)
+* **Navegador:** qutebrowser
 * **Editor de Texto:** Micro
 * **Captura de Tela:** Flameshot
 * **Gerenciador de Arquivos:** Thunar + File Roller (Compactador)
