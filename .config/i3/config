@@ -15,6 +15,10 @@ set $mod Mod4
 # Fonte do sistema
 font pango:monospace 10
 
+# Remover barra de título das janelas
+default_border pixel 1
+default_floating_border pixel 1
+
 # Usar mouse + mod para arrastar janelas
 floating_modifier $mod
 
