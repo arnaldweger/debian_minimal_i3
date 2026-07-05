@@ -8,7 +8,10 @@ echo "=== Iniciando a instalação do Dunst ==="
 
 # Criando a configuração básica do Dunst
 echo "=== Gerando arquivo de configuração do Dunst ==="
+
+mkdir -p "$USER_CONFIG_DIR/dunst"
 cat << 'EOF' > "$USER_CONFIG_DIR/dunst/dunstrc"
+
 [global]
     monitor = 0
     follow = mouse
