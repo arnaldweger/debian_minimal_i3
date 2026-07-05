@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Sair imediatamente se um comando falhar
+set -e
+
+echo "=== Iniciando a instalação do Dunst ==="
+
+
+# Criando a configuração básica do Dunst
+echo "=== Gerando arquivo de configuração do Dunst ==="
+cat << 'EOF' > "$USER_CONFIG_DIR/dunst/dunstrc"
+[global]
+    monitor = 0
+    follow = mouse
+    width = 300
+    height = 300
+    origin = top-right
+    offset = 10x50
+    scale = 0
+    notification_limit = 0
+    font = Monospace 10
+    line_height = 0
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    show_age_threshold = 60
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    icon_position = left
+    min_icon_size = 0
+    max_icon_size = 32
+    sticky_history = yes
+    history_length = 20
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    corner_radius = 4
+
+[urgency_low]
+    background = "#222222"
+    foreground = "#888888"
+    timeout = 10
+
+[urgency_normal]
+    background = "#285577"
+    foreground = "#ffffff"
+    timeout = 15
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 0
+EOF

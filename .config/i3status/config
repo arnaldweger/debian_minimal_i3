@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Sair imediatamente se um comando falhar
+set -e
+
+echo "=== Iniciando a instalação do i3status ==="
+
+
+
+# Criando a configuração básica do i3status
+echo "=== Gerando arquivo de configuração do i3status ==="
+cat << 'EOF' > "$USER_CONFIG_DIR/i3status/config"
+general {
+        colors = true
+        interval = 5
+}
+
+order += "disk /"
+order += "load"
+order += "tztime local"
+
+disk "/" {
+        format = " Disco: %avail "
+}
+
+load {
+        format = " CPU: %1min "
+}
+
+tztime local {
+        format = " %d/%m/%Y %H:%M:%S "
+}
+EOF

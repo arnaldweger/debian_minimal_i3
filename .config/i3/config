@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+
+# Sair imediatamente se um comando falhar
+set -e
+
+echo "=== Iniciando a instalação do i3 ==="
+
+# 5. Criando a configuração do i3 (Barra no topo, Kitty, j4-dmenu, Thunar, Flameshot)
+echo "=== Gerando arquivo de configuração do i3 ==="
+cat << 'EOF' > "$USER_CONFIG_DIR/i3/config"
+# Configuração Minimalista i3
+set $mod Mod4
+
+# Fonte do sistema
+font pango:monospace 10
+
+# Usar mouse + mod para arrastar janelas
+floating_modifier $mod
+
+# Iniciar Terminal (Kitty)
+bindsym $mod+Return exec kitty
+
+# Matar janela focada
+bindsym $mod+Shift+q kill
+
+# Launcher (j4-dmenu-desktop)
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'monospace-10' -nb '#222222' -nf '#bbbbbb' -sb '#4c7899' -sf '#ffffff'"
+
+# Gerenciador de Arquivos (Thunar)
+bindsym $mod+e exec thunar
+
+# Captura de Tela (Flameshot)
+bindsym Print exec flameshot gui
+
+# Mudar foco
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ccedilla focus right
+
+# Mover janelas
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+ccedilla move right
+
+# Divisões
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+
+# Modos de layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+
+# Alternar flutuação
+bindsym $mod+Shift+space floating toggle
+
+# Mudar de workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+
+# Mover para workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+
+# Recarregar/Reiniciar i3
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# Saída do i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Sair do i3?' -B 'Sim' 'i3-msg exit'"
+
+# Configuração da Barra (Posição no TOPO)
+bar {
+        position top
+        status_command i3status
+        colors {
+            background #222222
+            statusline #ffffff
+            separator  #666666
+        }
+}
+
+# Inicializar Dunst (Notificações)
+exec --no-startup-id dunst
+EOF
