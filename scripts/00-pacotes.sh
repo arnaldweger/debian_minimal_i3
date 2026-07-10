@@ -10,6 +10,6 @@ echo "=== Instalando pacotes essenciais ==="
 sudo apt install -y \
     i3-wm i3status j4-dmenu-desktop dmenu kitty dunst micro \
     flameshot file-roller thunar git xinit xserver-xorg-core xserver-xorg \
-    qutebrowser
+    qutebrowser hunspell-pt-br
 
 echo "=== Pacotes instalados com sucesso ==="
